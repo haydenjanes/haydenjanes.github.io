@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>just a contact frontend provided by just-code.io</title>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/additional-methods.min.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <link rel="stylesheet" href="css/spinner.css">
+    <link rel="stylesheet" type="text/css" href="css/simple.css">
+  </head>
+
+  <body>
+    <h1>Get ready for just a contact form</h1>
+    This static website is hosted as <a href="https://docs.gitlab.com/ee/user/project/pages/">GitLab Page</a> and
+    sends a contact form to our php backend. That is possible using <a
+      href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS">Cross-Origin
+      Resource Sharing</a>.
+    <h2>Why we wrote this project?</h2>
+    <p>
+      If you have static websites, such as <a href="https://docs.gitlab.com/ee/user/project/pages/">GitLab Pages</a>
+      or <a href="https://pages.github.com/">GitHub
+        Pages</a> just like us, and just like to use a contact form, this <a
+        href="https://gitlab.com/just-code/just_contact_backend/-/blob/master/LICENSE">opensoure</a> project with a
+      self hosted backend
+      might be a
+      good choice. Virtual servers are usually <a href="https://www.netcup.de/vserver/vps.php">cheaper</a> than <a
+        href="https://jekyllthemes.io/resources/jekyll-contact-forms">contact form services</a>.
+      Most services just have not enough options on the free tier and are quite expensive on a basic paid plan. If you
+      like self hosted forms with data management, take a look on <a href="https://www.formtools.org">Form Tools</a>.
+      This project takes just a different approach..
+    </p>
+    <h2>Do not be scared of a bit backend, it`s just code</h2>
+    <p>
+      This project offers a solution to forward a message from a static page to an email, with features like form
+      validation, captcha and file upload but with just a <a
+        href="https://gitlab.com/just-code/just_contact_backend">minimal backend</a>, not a full blown CMS system. This
+      website demonstrates just a contact form making a <a href="https://api.jquery.com/jquery.post/">jQuery
+        call</a> to a self hosted PHP backend. And to make it <em>just</em> easier for you, we provide the whole <a
+        href="https://gitlab.com/just-code/just_ansible">ansible setup</a> for debian/ubuntu.
+    </p>
+    <p>
+      The backend uses PHP to accept the data from the frontend. It uses composer to manage dependencies and is
+      unit-tested. We provide a docker-compose file with nginx and php:7-fpm to get started quickly.
+    </p>
+    <h2>Let us make great and free contact forms</h2>
+    <p>
+      There are many ideas to improve this solution: send form to an instant messenger or Elastic Search, provide
+      localisation and accessibility. Both, this <a
+        href="https://gitlab.com/just-code/just_contact_frontend">frontend</a>, and the
+      <a href="https://gitlab.com/just-code/just_contact_backend">backend</a> are open source. If you like to
+      contribute, make a GitLab pull request or just use the contact form below ;-)
+    </p>
+    <form id="contactForm" method="POST" action="" enctype="multipart/form-data">
+      <div class="row">
+        <div class="col-25">
+          <label for="name">Name:</label>
+        </div>
+        <div class="col-75">
+          <input type="text" name="name" id="name">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-25">
+          <label for="email">Email:</label>
+        </div>
+        <div class="col-75">
+          <input type="email" name="email" class="phone-mail" id="email">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-25">
+          <label for="phone">Phone:</label>
+        </div>
+        <div class="col-75">
+          <input type="tel" name="phone" class="phone-mail" id="phone">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-25"><label for="message">Message:</label></div>
+        <div class="col-75"><textarea rows="10" cols="80" name="message" id="message" required></textarea>
+          <input type="hidden" name="shared_secret" value="70259406b8d46e07674e8b7317c56a4a803cac35" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-25"><label for="attachment">Attachment:</label></div>
+        <div class="col-75"><input type="file" id="attachment" name="attachment" accept="pdf,doc,docx,odt,image/*"
+            multiple>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-25"><label for="attachment">Captcha:</label></div>
+        <div class="col-75">
+          <!-- This data-sitekey need to be change for production -->
+          <div class="g-recaptcha" data-sitekey="6LeLCvwUAAAAALtUc5i8oXCB0fJVi4TezIW0jIh7"
+            data-callback="onReCaptchaOK"></div>
+          <input type="hidden" name="hiddenReCaptcha" id="hiddenReCaptcha">
+        </div>
+      </div>
+      <div class="row">
+        <input value="send message" type="submit">
+      </div>
+      </div>
+    </form>
+    <div>
+      <h3>imprint</h3>
+      <p>Responsible for the content of this webpage is:</p>
+Adam Furmanczu<br>
+Moosburgstrasse 17<br>
+8307 Effretikon<br>
+Schweiz
+    </div>
+    <div class="thank-you hidden">
+      <div>
+        <img src="img/photo-1529590089538-86ace5ee4666.jpeg" alt="Thank you">
+      </div>
+      <div class="thank-you--message">
+        <h2>We just wanted to say thanks</h2>
+        <span>We will check and reply shortly</span>
+      </div>
+    </div>
+    <div class="sending-error hidden">
+      <div>
+        <h2>Ops... we just couldn't receive your feedback</h2>
+        <span>Please manually send us your feedback by using </span>
+        <a class="email" href="#">your preferred mail client</a>
+      </div>
+    </div>
+    <div class="spinner hidden">
+      <div class="lds-dual-ring"></div>
+    </div>
+    <script src="js/main.js"></script>
+  </body>
+
+</html>

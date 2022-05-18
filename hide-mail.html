@@ -1,0 +1,34 @@
+<HTML>
+
+  <head>
+    <title>just a btoa script</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="docs/css/simple.css">
+  </head>
+
+  <body>
+    <p></p>The fallback email address will be displayed when recaptha was successful, but the backend could not send the
+    mail.</p>
+    <p>In that case we present the user with a fall back email address. To avoid most spam bots parsing javascript for
+      emails, we run <a href="https://developer.mozilla.org/en-US/docs/Glossary/Base64">atob() and btoa()</a> for base64
+      encoding.</p>
+    <form id="mailForm" onsubmit="return runBtoa();" action="">
+      <label for="mail">E-Mail:</label>
+      <input type="email" id="mail" name="mail">
+      <input type="submit" value="run encode using btoa"><br />
+      <label for="mail">Output:</label>
+      <input type="text" id="result" name="mail">
+    </form>
+
+  </body>
+  </body>
+  <script>
+    function runBtoa() {
+      var mail = document.getElementById('mail').value;
+      document.getElementById('result').value = window.btoa(mail);
+      return false;
+    }
+
+  </script>
+
+</HTML>
