@@ -46,10 +46,49 @@
 											<h2>Have a file already?</h2>
 										</header>
 										<p>Do you already have a <b>.stl</b>,<b> .3mf</b>, or<b> .obj</b> already? Please fill out the information below. <br> 
-										You can buy these online or find them for free on <b>Printables</b> or <b>Thingiverse</b></p>
-										<ul class="actions">
-											<li><a href="generic.html" class="button">Learn More</a></li>
-										</ul>
+										You can buy these online or find them for free on <b>Printables</b> or <b>Thingiverse</b>
+										
+										<form id="contactForm" method="POST" action="" enctype="multipart/form-data">
+      <div class="row">
+        <div class="col-25">
+          <label for="name">Name:</label>
+        </div>
+        <div class="col-75">
+          <input type="text" name="name" id="name">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-25">
+          <label for="email">Email:</label>
+        </div>
+        <div class="col-75">
+          <input type="email" name="email" class="phone-mail" id="email">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-25">
+          <label for="phone">Phone:</label>
+        </div>
+        <div class="col-75">
+          <input type="tel" name="phone" class="phone-mail" id="phone">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-25"><label for="message">Message:</label></div>
+        <div class="col-75"><textarea rows="4" cols="60" name="message" id="message" required></textarea>
+          <input type="hidden" name="shared_secret" value="70259406b8d46e07674e8b7317c56a4a803cac35" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-25"><label for="attachment">Attachment:</label></div>
+        <div class="col-75"><input type="file" id="attachment" name="attachment" accept="stl,3mf,pdf,doc,image/*"
+            multiple>
+        </div>
+      </div>
+      <div class="row">
+        <input value="Send Message" type="submit">
+      </div>
+    </form></p>
 									</div>
 									<span class="image"><img src="images/pic01.jpg" alt="" /></span>
 								</div>
